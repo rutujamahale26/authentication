@@ -22,7 +22,7 @@ const AdminDashboard = () => {
         params.date = dateFilter;
       }
 
-      const res = await axios.get('http://localhost:5000/api/users/admin', {
+      const res = await axios.get('https://authentication-n4yc.vercel.app/api/users/admin', {
         headers: {
           Authorization: `Bearer ${token}`
         },
