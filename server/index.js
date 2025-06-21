@@ -8,9 +8,17 @@ const app = express();
 const PORT = 5000;
 
 // CORS config for local frontend (localhost:3000)
+const allowedOrigins = ['https://authentication-one-neon.vercel.app'];
+
 app.use(cors({
-  origin: 'https://authentication-one-neon.vercel.app/',
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // if you're using cookies or auth headers
 }));
 
 app.use(express.json());
