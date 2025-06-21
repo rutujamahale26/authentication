@@ -9,7 +9,7 @@ const PORT = 5000;
 
 // CORS config for local frontend (localhost:3000)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://authentication-one-neon.vercel.app/',
   credentials: true
 }));
 

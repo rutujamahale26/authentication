@@ -26,11 +26,11 @@ const RegisterForm = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post('https://authentication-n4yc.vercel.app/api/auth/register', formData);
       console.log('Registration Success:', response.data);
 
       // Automatically login after registration
-      const loginResponse = await axios.post('http://localhost:5000/api/auth/login', {
+      const loginResponse = await axios.post('https://authentication-n4yc.vercel.app/api/auth/login', {
         email: formData.email,
         password: formData.password
       });
