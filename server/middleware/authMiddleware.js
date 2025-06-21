@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-
-const JWT_SECRET = 'accd_ef';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const verifyToken = (req, res, next) =>{
     let token;
@@ -13,7 +13,7 @@ const verifyToken = (req, res, next) =>{
         }
 
         try{
-            const decode = jwt.verify(token, JWT_SECRET)
+            const decode = jwt.verify(token,  process.env.JWT_SECRET)
             req.user = decode;
             console.log('The user is: ' ,req.user)
             next()

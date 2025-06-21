@@ -7,19 +7,28 @@ import userRoutes from './routes/userRoutes.js';
 const app = express();
 const PORT = 5000;
 
-// CORS config for local frontend (localhost:3000)
-const allowedOrigins = ['https://authentication-one-neon.vercel.app'];
+
+
+// ✅ CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://authentication-one-neon.vercel.app'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     }
+    return callback(new Error('Not allowed by CORS'));
   },
-  credentials: true // if you're using cookies or auth headers
+  credentials: true
 }));
+
+
+
 
 app.use(express.json());
 
