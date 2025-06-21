@@ -1,0 +1,204 @@
+/* Container & Card */
+
+.admin-dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8, #dfe9f3);
+  padding: 40px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-dashboard-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 40px;
+  max-width: 1000px;
+  width: 100%;
+  color: #222;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Title & tagline */
+
+.admin-dashboard-card h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #0f204a;
+}
+
+.tagline {
+  font-size: 15px;
+  font-style: italic;
+  color: #4a5a7a;
+  margin-bottom: 25px;
+}
+
+/* Admin info section */
+
+.admin-info {
+  margin-bottom: 30px;
+}
+
+.admin-info h3 {
+  font-size: 17px;
+  margin: 6px 0;
+  color: #222;
+}
+
+.admin-info span {
+  font-weight: 600;
+  color: #0f204a;
+}
+
+/* Filter Section */
+
+.filter-section {
+  margin: 20px 0 30px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.glass-input {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #0f204a;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 30px rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 160px;
+  transition: box-shadow 0.3s ease;
+}
+
+.glass-input:hover,
+.glass-input:focus-within {
+  box-shadow: 0 6px 40px rgba(31, 38, 135, 0.3);
+}
+
+.glass-input select,
+.glass-input input[type="date"] {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.glass-input select:hover,
+.glass-input input[type="date"]:hover,
+.glass-input select:focus,
+.glass-input input[type="date"]:focus {
+  background-color: #fff;
+}
+
+/* Table section */
+
+.user-table-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.user-table-section h2 {
+  margin-bottom: 10px;
+  color: #0f204a;
+  font-size: 20px;
+  border-bottom: 2px solid #a0b1d1;
+  padding-bottom: 6px;
+}
+
+/* Table styling */
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.user-table th,
+.user-table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  color: #222;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-table th {
+  background-color: #d6dbf7;
+  font-weight: 700;
+  color: #0f204a;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f3f6fb;
+}
+
+.user-table tr:hover {
+  background-color: #e0e6f7;
+}
+
+/* Error message */
+
+.error {
+  background-color: #ffe5e5;
+  color: #cc0000;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.back-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.back-btn {
+  width: 30%;
+  background-color: #065bb5;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #043f8c;
+}
+
+
+/* Animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

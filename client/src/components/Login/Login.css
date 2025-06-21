@@ -1,0 +1,99 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.register-form {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 8px 8px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  color: #333;
+  outline: none;
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  font-size: 14px;
+  color: #777;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+/* Float label on focus or when filled */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 6px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0 4px;
+  border-radius: 4px;
+  color: #0a74da;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0a74da;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #065bb5;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #0a74da;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

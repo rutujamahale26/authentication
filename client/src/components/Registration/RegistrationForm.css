@@ -1,0 +1,123 @@
+/* Form Container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #ece9f6);
+}
+
+/* Register Form Glass Card */
+.register-form {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Row Layout */
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+/* Form Group */
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+  flex: 1;
+}
+
+/* Input + Select Base Styles */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  font-size: 14px;
+  border: none;
+  border-bottom: 2px solid #b0bec5;
+  background: transparent;
+  color: #222;
+  transition: border-color 0.3s ease;
+}
+
+/* Hide placeholder text to avoid visual overlap */
+.form-group input::placeholder {
+  color: transparent;
+}
+
+/* Label Positioning */
+.form-group label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 14px;
+  color: #777;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Floating label trigger for input/select */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:valid + label {
+  top: -12px;
+  font-size: 12px;
+  color: #00bcd4;
+}
+
+/* Focus style */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #00bcd4;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #3f51b5, #00bcd4);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 188, 212, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(to right, #3949ab, #00acc1);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 188, 212, 0.3);
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

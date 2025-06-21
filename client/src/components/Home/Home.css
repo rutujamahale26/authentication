@@ -1,0 +1,216 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #e3f2fd, #ede7f6);
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Container */
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.home-navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  padding: 16px 40px;
+  font-size: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand Name */
+.brand-name {
+  font-weight: bold;
+  width: 85%;
+  font-size: 24px;
+  background: linear-gradient(45deg, #7b1fa2, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Login Button */
+.login-btn {
+  background: linear-gradient(to right, #7b1fa2, #00bcd4);
+  width: 15%;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding:14px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(123, 31, 162, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(to right, #6a1b9a, #00acc1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(123, 31, 162, 0.4);
+}
+
+/* Welcome Card */
+.home-card {
+  max-width: 800px;
+  margin: 80px auto 50px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.welcome-msg {
+  background: rgba(0, 188, 212, 0.15);
+  color: #007c91;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  animation: fadeInDown 0.6s ease;
+}
+
+.home-card h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.tagline {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.primary-btn {
+  background-color: #7b1fa2;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: #6a1b9a;
+}
+
+/* Services Section */
+.services-section {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #4a148c;
+}
+
+/* Service Cards */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  width: 280px;
+  min-height: 220px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #7b1fa2;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-navbar {
+    padding: 12px 20px;
+    flex-direction: row;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .home-card {
+    margin: 60px 20px 40px;
+    padding: 30px 20px;
+  }
+
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primary-btn, .login-btn {
+    width: auto;
+  }
+
+  .login-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
