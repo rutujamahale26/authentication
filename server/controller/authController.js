@@ -2,6 +2,7 @@ import {User} from '../models/userModel.js'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
+
 // Replace with your actual secret key
 const JWT_SECRET = 'accd_ef';
 
@@ -9,37 +10,33 @@ export const register = async (req, res) => {
   try {
     const { fname, lname, mobile, gender, email, password, role } = req.body;
 
-    // Validate required fields
+    console.log("Incoming registration data:", req.body);
+
     if (!fname || !lname || !mobile || !gender || !email || !password) {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    // Check if user already exists
+    // Add debug logs around database and logic
     const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: 'User already exists' });
+    if (existingUser) {
+      return res.status(409).json({ message: 'User already exists' });
+    }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
-    const user = new User({
-      fname,
-      lname,
-      mobile,
-      gender,
-      email,
-      password: hashedPassword,
-      role: role || 'user'
+    const newUser = new User({
+      fname, lname, mobile, gender, email, password: hashedPassword, role
     });
 
-    await user.save();
+    await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
-  } catch (err) {
-    console.error('Error during registration:', err.message); // 
-    res.status(500).json({ message: 'Something went wrong. Please try again later.' });
+  } catch (error) {
+    console.error("Register Error:", error); // this will show exact backend failure
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
 
 export const login = async (req, res) => {
   try {
@@ -55,7 +52,7 @@ export const login = async (req, res) => {
 
     // Generate JWT
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      { userId: user._id, email: user.email,role: user.role },
       JWT_SECRET,
       { expiresIn: '1h' }
     );

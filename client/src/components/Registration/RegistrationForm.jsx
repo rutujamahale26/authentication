@@ -9,7 +9,7 @@ const RegisterForm = () => {
     lname: '',
     email: '',
     gender: '',
-    role: '',
+    role: 'user', // Default to 'user' if not chosen
     mobile: '',
     password: ''
   });
@@ -21,27 +21,21 @@ const RegisterForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await axios.post('https://authentication-n4yc.vercel.app/api/auth/register', formData);
-      console.log('Registration Success:', response.data);
+  try {
+    const response = await axios.post(
+      'https://authentication-n4yc.vercel.app/api/auth/register',
+      formData // <- this should contain all required fields
+    );
+    console.log('Registration Success:', response.data);
+  } catch (error) {
+    console.error('Registration Error:', error);
+  }
+};
 
-      // Automatically login after registration
-      const loginResponse = await axios.post('https://authentication-n4yc.vercel.app/api/auth/login', {
-        email: formData.email,
-        password: formData.password
-      });
 
-      const role = loginResponse.data.user.role;
-      navigate(role === 'admin' ? '/admin' : '/');
-    } catch (err) {
-      console.error('Registration Error:', err);
-      setError(err.response?.data?.message || 'Registration failed');
-    }
-  };
 
   return (
     <div className="form-container">
@@ -52,17 +46,38 @@ const RegisterForm = () => {
 
         <div className="row">
           <div className="form-group">
-            <input type="text" name="fname" value={formData.fname} onChange={handleChange} required placeholder=" " />
+            <input
+              type="text"
+              name="fname"
+              value={formData.fname}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
             <label>First Name</label>
           </div>
           <div className="form-group">
-            <input type="text" name="lname" value={formData.lname} onChange={handleChange} required placeholder=" " />
+            <input
+              type="text"
+              name="lname"
+              value={formData.lname}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
             <label>Last Name</label>
           </div>
         </div>
 
         <div className="form-group">
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder=" " />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            placeholder=" "
+          />
           <label>Email</label>
         </div>
 
@@ -77,8 +92,7 @@ const RegisterForm = () => {
         </div>
 
         <div className="form-group">
-          <select name="role" value={formData.role} onChange={handleChange} required>
-            <option value="" disabled hidden></option>
+          <select name="role" value={formData.role} onChange={handleChange}>
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
@@ -86,17 +100,33 @@ const RegisterForm = () => {
         </div>
 
         <div className="form-group">
-          <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} required placeholder=" " />
+          <input
+            type="tel"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            required
+            placeholder=" "
+          />
           <label>Mobile Number</label>
         </div>
 
         <div className="form-group">
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required placeholder=" " />
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            placeholder=" "
+          />
           <label>Password</label>
         </div>
 
         <button type="submit">Register</button>
-        <p className="login-link">Already have an account? <a href="/login">Login</a></p>
+        <p className="login-link">
+          Already have an account? <a href="/login">Login</a>
+        </p>
       </form>
     </div>
   );
